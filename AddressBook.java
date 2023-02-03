@@ -37,8 +37,8 @@ public class AddressBook {
 
         people.add(person);
     }
-    public void editContact()
-    {
+
+    public void editContact() {
 
         System.out.println("Enter the person whose contact to be edited :");
         System.out.println("Enter First Name:");
@@ -47,11 +47,9 @@ public class AddressBook {
         String lname = sc.nextLine();
 
         int flag = 0;
-        for (int j = 0; j < people.size(); j++)
-        {
+        for (int j = 0; j < people.size(); j++) {
             Contact person = people.get(j);
-            if (person.firstName.equals(fname) && person.lastName.equals(lname))
-            {
+            if (person.firstName.equals(fname) && person.lastName.equals(lname)) {
                 flag = 1;
                 System.out.println("First Name : " + person.firstName);
                 System.out.println("Last Name  : " + person.lastName);
@@ -64,12 +62,11 @@ public class AddressBook {
                 System.out.println("---------------------------------------");
                 System.out.println("Enter the number which you want to edit\n1.First Name\n2.Last Name\n3.Address\n4.C\n5.State\n6.Zip\n7.Phone Number\n8.Email");
                 int choose = sc.nextInt();
-                switch (choose)
-                {
+                switch (choose) {
                     case 1:
                         System.out.println("first name:");
                         Scanner sc = new Scanner(System.in);
-                        person.firstName =  sc.nextLine();
+                        person.firstName = sc.nextLine();
                         System.out.println("edited succesfully");
                         break;
                     case 2:
@@ -122,5 +119,22 @@ public class AddressBook {
             System.out.println("Contact not found!!!");
     }
 
-}
+    public void deleteContact() {
 
+        System.out.println("Enter the person whose contact to be deleted :");
+        System.out.println("Enter First Name:");
+        String fname = sc.nextLine();
+        System.out.println("Enter Last Name:");
+        String lname = sc.nextLine();
+
+        for (int j = 0; j < people.size(); j++) {
+            Contact person = people.get(j);
+            if (person.firstName.equals(fname) && person.lastName.equals(lname)) {
+                people.remove(person);
+                System.out.println("person removed sucessfully");
+            } else {
+                System.out.println("contact not matched");
+            }
+        }
+    }
+}
